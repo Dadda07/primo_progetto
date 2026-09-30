@@ -21,5 +21,6 @@ urlpatterns=[
     path('variabili/', variabili, name = 'variabili'),
     path('admin/', admin.site.urls),
     path('index/', index, name='index'),
-    path('', index_root, name='index_root')
+    path('', index_root, name='index_root'),
+   
 ]
