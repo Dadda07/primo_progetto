@@ -9,7 +9,7 @@ from prima_app.views import lista
 from prima_app.views import chi_siamo
 from prima_app.views import variabili
 from prima_app.views import index
-from primo_progetto.views import index_root
+
 
 app_name="prima_app"
 
