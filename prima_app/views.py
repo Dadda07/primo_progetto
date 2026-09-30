@@ -19,6 +19,7 @@ def variabili(request):
     context = {'var1': '10', 'var2' : '20', 'var3': '30'}
     return render(request, 'prima_app/variabili.html', context)
 
-    
+def index(request):
+    return render(request, 'prima_app/index.html')    
     
 # Create your views here.
