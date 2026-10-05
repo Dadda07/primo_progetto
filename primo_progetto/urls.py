@@ -18,10 +18,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from primo_progetto.views import index_root
+from seconda_app.views import es_if
 
 urlpatterns = [
     
     path('admin/', admin.site.urls),
     path('', include("prima_app.urls",namespace="prima_app")),
+    path('es_if/', es_if, name='es_if'),
     path('', index_root, name='index_root')
 ]
