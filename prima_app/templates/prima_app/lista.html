@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <title>Lista</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %} {{ block.super }} | Lista {% endblock title %}
+
+{% block content %}
     <h1>La mia lista</h1>
     <ol>
         <li>Primo</li>
         <li>Secondo</li>
         <li>Terzo</li>
     </ol>
-</body>
-</html>
+{% endblock content %}

@@ -1,21 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-</head>
-<body>
+{% extends 'base.html' %}
 
-<ol>
+{% block title %} {{ block.super }} | Menu {% endblock title %}
 
-<li><a href="{% url 'index_root'%}">index root</a></li>
-<li><a href="{% url 'prima_app:homepage'%}">home page welcome</a></li>
-<li><a href="{% url 'prima_app:lista'%}">menu</a></li>
-<li><a href="{% url 'prima_app:chi_siamo'%}">chi siamo</a></li>
-<li><a href="{% url 'prima_app:variabili'%}">variabili</a></li>
-
-</ol>
-
-</body>
-</html>
+{% block content %}
+    <ol>
+        <li><a href="{% url 'index_root' %}">index root</a></li>
+        <li><a href="{% url 'prima_app:homepage' %}">home page welcome</a></li>
+        <li><a href="{% url 'prima_app:lista' %}">menu</a></li>
+        <li><a href="{% url 'prima_app:chi_siamo' %}">chi siamo</a></li>
+        <li><a href="{% url 'prima_app:variabili' %}">variabili</a></li>
+    </ol>
+{% endblock content %}

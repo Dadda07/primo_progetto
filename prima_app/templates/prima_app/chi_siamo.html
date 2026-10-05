@@ -1,11 +1,13 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <title>Chi siamo</title>
-</head>
-<body>
-    <h1>Chi siamo</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-</body>
-</html>
+
+ {% load static %}
+
+ {% extends "base.html" %}
+
+ {% block title %} {{block.super}} Chi siamo {% endblock title %}
+
+ {% block content %}
+ <h1> chi siamo </h1>
+ 
+ <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+
+ {% endblock content %}
