@@ -2,7 +2,6 @@ from django.shortcuts import render
 
 
 def homepage(request):
-    
     return render (request, "prima_app/homepage.html")
 
 def welcome(request):
