@@ -36,6 +36,8 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdownPrima">
           <a class="dropdown-item" href="{% url 'prima_app:welcome' %}">Welcome</a>
           <a class="dropdown-item" href="{% url 'prima_app:chi_siamo' %}">Chi Siamo</a>
+             <a class="dropdown-item" href="{% url 'prima_app:variabili' %}">Variabili</a>
+          <a class="dropdown-item" href="{% url 'prima_app:index' %}">Index</a>
         </div>
       </li>
 
@@ -44,11 +46,12 @@
           Seconda app
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownSeconda">
-          <a class="dropdown-item" href="{% url 'prima_app:variabili' %}">Variabili</a>
-          <a class="dropdown-item" href="{% url 'prima_app:index' %}">Index</a>
+          <a class="dropdown-item" href="{% url 'seconda_app:es_if' %}">Esercizio If</a>
+          <a class="dropdown-item" href="{% url 'seconda_app:if_else_elif' %}">Esercizio If Else Elif</a>
+          <a class="dropdown-item" href="{% url 'seconda_app:es_for' %}">Esercizio For</a>
         </div>
       </li>
-
+    
       <li class="nav-item">
         <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
       </li>
