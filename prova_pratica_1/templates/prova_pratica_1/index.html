@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ block.super }} | Menu {% endblock title %}
+
+{% block content %}
+
+<ol>
+    <li><a href="{% url 'index_root' %}">index root</a></li>
+    <li><a href="{% url 'prova_pratica_1:somma' %}">somma</a></li>
+    <li><a href="{% url 'prova_pratica_1:media' %}">media</a></li>
+</ol>
+
+{% endblock content}

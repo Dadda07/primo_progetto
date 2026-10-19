@@ -1,0 +1,11 @@
+{% extends 'base.html'%}
+{%block title%}
+{{block.super}} | media
+{%endblock title%}
+{%block content%}
+
+{% for x in lista1 %}
+<i>{{ forloop.counter }} </i>: {{ x }}<br>
+{% endfor %}
+
+{%endblock content%}  
