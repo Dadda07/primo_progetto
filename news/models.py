@@ -4,6 +4,7 @@ from django.db import models
 class Giornalista(models.Model):
     nome = models.CharField(max_length=100)
     cognome = models.CharField(max_length=100)
+    data_nascita = models.DateField()
 
     def __str__(self):
         return self.nome + " "+ self.cognome
@@ -17,6 +18,8 @@ class Article(models.Model):
     titolo = models.CharField(max_length=200)
     contenuto = models.TextField()
     giornalista = models.ForeignKey(Giornalista, on_delete=models.CASCADE, related_name='articoli')
+    visualizzazioni = models.IntegerField(default=0)
+    data_pubblicazione = models.DateField()
 
 
     def __str__(self):

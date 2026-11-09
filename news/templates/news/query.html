@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Risultati Query di Base
+{% endblock title %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Risultati delle Query di Base</h1>
+    <hr>
+>
+    <h3>1. Articoli scritti da giornalisti con cognome 'Rossi'</h3>
+    <ul>
+        {% for art in articoli_cognome %}
+            <li>{{ art.titolo }} (Autore: {{ art.giornalista.nome }} {{ art.giornalista.cognome }})</li>
+        {% empty %}
+            <li>Nessun articolo trovato.</li>
+        {% endfor %}
+    </ul>
+
+    <h3>2. Numero totale di articoli presenti a DB</h3>
+    <p><strong>Totale:</strong> {{ numero_totale_articoli }}</p>
+
+    <h3>3. Numero di articoli scritti da {{ giornalista_1.nome }} {{ giornalista_1.cognome }} (ID 1)</h3>
+    <p><strong>Articoli scritti:</strong> {{ numero_articoli_giornalista_1 }}</p>
+
+    <h3>4. Articoli ordinati per visualizzazioni (decrescente)</h3>
+    <ul>
+        {% for art in articoli_ordinati %}
+            <li>{{ art.titolo }} - Visualizzazioni: {{ art.visualizzazioni }}</li>
+        {% empty %}
+            <li>Nessun articolo trovato.</li>
+        {% endfor %}
+    </ul>
+
+    <h3>5. Articoli senza visualizzazioni (0 views)</h3>
+    <ul>
+        {% for art in articoli_senza_visualizzazioni %}
+            <li>{{ art.titolo }}</li>
+        {% empty %}
+            <li>Tutti gli articoli hanno almeno una visualizzazione.</li>
+        {% endfor %}
+    </ul>
+    <h3>6. Articolo più visualizzato</h3>
+    {% if articolo_piu_visualizzato %}
+        <p><strong>{{ articolo_piu_visualizzato.titolo }}</strong> con {{ articolo_piu_visualizzato.visualizzazioni }} visualizzazioni.</p>
+    {% else %}
+        <p>Nessun articolo presente.</p>
+    {% endif %}
+
+    <h3>7. Giornalisti nati dopo il 01/01/1990</h3>
+    <ul>
+        {% for g in giornalisti_data %}
+            <li>{{ g.nome }} {{ g.cognome }} - Nato il: {{ g.anno_di_nascita }}</li>
+        {% empty %}
+            <li>Nessun giornalista trovato.</li>
+        {% endfor %}
+    </ul>
+
+    <h3>8. Articoli pubblicati il 01/01/2023</h3>
+    <ul>
+        {% for art in articoli_del_giorno %}
+            <li>{{ art.titolo }}</li>
+        {% empty %}
+            <li>Nessun articolo pubblicato in questa data.</li>
+        {% endfor %}
+    </ul>
+
+    <h3>9. Articoli pubblicati nel 2023</h3>
+    <ul>
+        {% for art in articoli_periodo %}
+            <li>{{ art.titolo }} (Data: {{ art.data }})</li>
+        {% empty %}
+            <li>Nessun articolo pubblicato nel 2023.</li>
+        {% endfor %}
+    </ul>
+
+    <h3>10. Articoli scritti da giornalisti nati prima del 1980</h3>
+    <ul>
+        {% for art in articoli_giornalisti %}
+            <li>{{ art.titolo }} (Autore: {{ art.giornalista.nome }} {{ art.giornalista.cognome }})</li>
+        {% empty %}
+            <li>Nessun articolo trovato.</li>
+        {% endfor %}
+    </ul>
+
+    <h3>11. Giornalista più giovane</h3>
+    {% if giornalista_giovane %}
+        <p>{{ giornalista_giovane.nome }} {{ giornalista_giovane.cognome }} (Data di nascita: {{ giornalista_giovane.anno_di_nascita }})</p>
+    {% else %}
+        <p>Nessun giornalista trovato.</p>
+    {% endif %}
+
+    <h3>12. Giornalista più anziano</h3>
+    {% if giornalista_anziano %}
+        <p>{{ giornalista_anziano.nome }} {{ giornalista_anziano.cognome }} (Data di nascita: {{ giornalista_anziano.anno_di_nascita }})</p>
+    {% else %}
+        <p>Nessun giornalista trovato.</p>
+    {% endif %}
+
+    <h3>13. Ultimi 5 articoli pubblicati</h3>
+    <ul>
+        {% for art in ultimi %}
+            <li>{{ art.titolo }} (Data: {{ art.data }})</li>
+        {% empty %}
+            <li>Nessun articolo trovato.</li>
+        {% endfor %}
+    </ul>
+
+    <h3>14. Articoli con almeno 100 visualizzazioni</h3>
+    <ul>
+        {% for art in articoli_minime_visualizzazioni %}
+            <li>{{ art.titolo }} - Views: {{ art.visualizzazioni }}</li>
+        {% empty %}
+            <li>Nessun articolo raggiunge 100 visualizzazioni.</li>
+        {% endfor %}
+    </ul>
+
+    <h3>15. Articoli contenenti la parola 'importante' nel titolo</h3>
+    <ul>
+        {% for art in articoli_parola %}
+            <li>{{ art.titolo }}</li>
+        {% empty %}
+            <li>Nessun articolo con la parola indicata nel titolo.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock content %}
