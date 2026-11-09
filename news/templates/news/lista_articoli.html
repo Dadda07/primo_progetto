@@ -1,0 +1,36 @@
+
+{% extends 'base.html'%}
+
+{%block title%}
+    lista degli articoli
+{%endblock title%}
+
+{%block content%}
+
+    <h1>{{ titolo_pagina }}</h1>
+
+    {% if articoli %}
+        <ul>
+            {% for articolo in articoli %}
+                <li>
+                    <h2>{{ articolo.titolo }}</h2>
+                    <p>{{ articolo.contenuto }}</p>
+                    <p>
+                        <strong>Autore:</strong> 
+                        <a href="{% url 'lista_articoli_giornalista' articolo.giornalista.pk %}">
+                            {{ articolo.giornalista.nome }} {{ articolo.giornalista.cognome }}
+                        </a>
+                    </p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nessun articolo trovato.</p>
+    {% endif %}
+
+    {% if giornalista_selezionato %}
+        <hr>
+        <p><a href="{% url 'lista_articoli' %}">← Torna a tutti gli articoli</a></p>
+    {% endif %}
+
+{% endblock content %}

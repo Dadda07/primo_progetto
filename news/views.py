@@ -46,7 +46,26 @@ def home(request):
     return render(request, "news/home.html", context)
 
 def articoloDetailView(request, pk):
-    # articolo = Articolo.objects.get(pk=pk)
     articolo = get_object_or_404(Article, pk=pk)
     context = {"articolo": articolo}
     return render(request, "articolo_detail.html", context)
+
+def listaArticoli(request, pk=None):
+
+    if pk is None:
+        articoli = Article.objects.all()
+        titolo_pagina = "Tutti gli articoli"
+        giornalista_selezionato = None
+    else:
+        giornalista_selezionato = get_object_or_404(Giornalista, pk=pk)
+        
+        articoli = Article.objects.filter(giornalista=giornalista_selezionato)
+        titolo_pagina = f"Articoli scritti da {giornalista_selezionato.nome} {giornalista_selezionato.cognome}"
+
+    context = {
+        'articoli': articoli,
+        'titolo_pagina': titolo_pagina,
+        'giornalista_selezionato': giornalista_selezionato,
+    }
+
+    return render(request, 'news/lista_articoli.html', context)
