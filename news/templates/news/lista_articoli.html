@@ -1,11 +1,11 @@
 
 {% extends 'base.html'%}
 
-{%block title%}
+{% block title %}
     lista degli articoli
-{%endblock title%}
+{% endblock title %}
 
-{%block content%}
+{% block content %}
 
     <h1>{{ titolo_pagina }}</h1>
 
@@ -17,7 +17,7 @@
                     <p>{{ articolo.contenuto }}</p>
                     <p>
                         <strong>Autore:</strong> 
-                        <a href="{% url 'lista_articoli_giornalista' articolo.giornalista.pk %}">
+                        <a href="{% url 'news:lista_articoli_giornalista' articolo.giornalista.pk %}">
                             {{ articolo.giornalista.nome }} {{ articolo.giornalista.cognome }}
                         </a>
                     </p>
@@ -30,7 +30,7 @@
 
     {% if giornalista_selezionato %}
         <hr>
-        <p><a href="{% url 'lista_articoli' %}">← Torna a tutti gli articoli</a></p>
+        <p><a href="{% url 'news:lista_articoli' %}">← Torna a tutti gli articoli</a></p>
     {% endif %}
 
 {% endblock content %}

@@ -41,14 +41,19 @@ def home(request):
 def home(request):
     Articles = Article.objects.all()
     Giornalisti = Giornalista.objects.all()
-    context = { "Articles": Articles, "Giornalisti": Giornalisti }
+ 
+    context = { 
+        "articoli": Articles, 
+        "giornalisti": Giornalisti 
+    }
+    
     print(context)
-    return render(request, "news/home.html", context)
+    return render(request, "news/homepage.html", context)
 
 def articoloDetailView(request, pk):
     articolo = get_object_or_404(Article, pk=pk)
     context = {"articolo": articolo}
-    return render(request, "articolo_detail.html", context)
+    return render(request, "news/articolo_detail.html", context)
 
 def listaArticoli(request, pk=None):
 
