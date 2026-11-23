@@ -132,4 +132,21 @@ def queryBase(request):
         'articoli_parola': articoli_parola,
     }
 
+
     return render(request, 'news/query.html', context)
+
+def giornalistaDetailView(request, pk):
+    
+    giornalista = get_object_or_404(Giornalista, pk=pk)
+    articoli_giornalista = Article.objects.filter(giornalista=giornalista)
+    context = {
+        'giornalista': giornalista,
+        'articoli': articoli_giornalista,
+    }
+    return render(request, 'news/giornalista_detail.html', context)
+
+def articoloDetailView(request, pk):
+
+    articolo = get_object_or_404(Article, pk=pk)
+    context = {'articolo': articolo}
+    return render(request, 'news/articolo_detail.html', context)
