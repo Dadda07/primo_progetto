@@ -150,3 +150,8 @@ def articoloDetailView(request, pk):
     articolo = get_object_or_404(Article, pk=pk)
     context = {'articolo': articolo}
     return render(request, 'news/articolo_detail.html', context)
+
+
+def index(request):
+
+    return render(request, 'news/index.html')

@@ -1,11 +1,11 @@
-{% extends 'base.html' %}
-
-{% block title %}
-    {{ articolo.titolo }}
-{% endblock title %}
+{% extends "base.html" %}
 
 {% block content %}
     <h1>{{ articolo.titolo }}</h1>
-    <h3>{{ articolo.contenuto }}</h3>
-    <h5>Autore: {{ articolo.giornalista }}</h5>
+    <p><strong>Autore: </strong>
+        <a href="{% url 'news:giornalista_detail' articolo.giornalista.id %}">{{ articolo.giornalista }}</a>
+    </p>
+    <p><strong>Visualizzazioni: </strong>{{ articolo.visualizzazioni }}</p>
+    <hr>
+    <p>{{ articolo.contenuto }}</p>
 {% endblock content %}
